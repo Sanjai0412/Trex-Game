@@ -1,0 +1,28 @@
+@keyframes moveToLeft{
+    from{
+        background-position: 1300%;
+    }
+    to{
+        background-position: 0%;
+    }
+}
+
+#desert{
+    height: 200px;
+    width: 1300px;
+    background-image: url('t-rex-background.png');
+    animation: moveToLeft 23000ms infinite linear;
+}
+
+#grid{
+    height: 200px;
+    width: 1300px;
+}
+
+#dino{
+    height: 60px;
+    width: 60px;
+    background-image: url('t-rex.png');
+    position: absolute;
+    top: 145px;
+}
