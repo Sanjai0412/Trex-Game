@@ -57,7 +57,7 @@ function createObstacles(){
         obstacle.className='obstacle';
        
               let cactusImage=document.createElement('img');
-              cactusImage.src='cacti.png';
+              cactusImage.src='cactus.png';
 
           obstacle.append(cactusImage)
 
