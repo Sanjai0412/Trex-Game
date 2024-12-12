@@ -43,7 +43,6 @@ function downInterval(){
 
         if(parseInt(dino.style.bottom)==0){   // if the bottom of dino ==0 , then clear the 'downInterval' .Because dino reached the ground
             clearInterval(downInterval);
-            isJumping=false;
         }
    },22)   
 }
@@ -67,8 +66,7 @@ function createObstacles(){
           
         grid.appendChild(obstacle);
 
-        let obstacleInterval=setInterval(()=>{
-
+        let obstacleInterval=setInterval(()=>{  
             score++; // incrementing score
             scoreDiv.textContent="Your Score : "+score; // displaying the updated score 
            
