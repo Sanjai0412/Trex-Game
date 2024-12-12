@@ -15,7 +15,7 @@ function control(e){ //this function is used to check the clicking buttom is "Sp
 
      if(e.code=='Space'){  // if the code is 'Space' Then call the function 'jump()'
 
-        if(!isJumping){ // if the isJumping=false , then execute the funvtion
+        if(!isJumping && !gameOver){ // if the isJumping=false  and the gameOver = false, then execute the funvtion
             jump();
         }
      }
@@ -43,6 +43,7 @@ function downInterval(){
 
         if(parseInt(dino.style.bottom)==0){   // if the bottom of dino ==0 , then clear the 'downInterval' .Because dino reached the ground
             clearInterval(downInterval);
+            isJumping=false;
         }
    },22)   
 }
@@ -50,7 +51,7 @@ function downInterval(){
 function createObstacles(){
     let alert=document.getElementById('alert');
 
-    if(!gameOver){
+    if(!gameOver){ // if the gameover = false then execute the process
         let obstaclePosition=1300;
         let obstacle=document.createElement('div');
         obstacle.className='obstacle';
@@ -77,14 +78,13 @@ function createObstacles(){
 
                         // T-rex after dead
                         dinoAfterDead(desert,dino);
-
+                       
                         // Alert Message
                         alert.innerHTML="Game Over ! ";
                         let popUp=document.createElement('div');
                         popUp.id='pop-up';
                         popUp.textContent='Focus bruh :(';
                     grid.append(popUp); // append pop-up to the grid
-                    isJumping=true;
                 }
               obstaclePosition-=10;
               obstacle.style.left=obstaclePosition+'px';
@@ -106,6 +106,7 @@ function isTouching(object1,object2){
     if(parseInt(object1.style.bottom)<70 && parseInt(object2.style.left)<20){
       touch=true;
       gameOver=true;
+      isJumping=true;
     }
     return touch;
 }
@@ -118,7 +119,6 @@ function dinoAfterDead(bg,trex){
     trex.style.width=72+'px';
     trex.style.height=70+'px';
 }
-
 
 document.addEventListener('keydown',control);
 

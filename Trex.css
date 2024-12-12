@@ -30,7 +30,9 @@
     position: absolute;
     bottom: 0px;
 }
-
+#alert{
+    margin: 0px;
+}
 #pop-up{
     position: relative;
     top: 150px;
