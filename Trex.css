@@ -12,11 +12,15 @@
     width: 1300px;
     background-image: url('t-rex-background.png');
     animation: moveToLeft 23000ms infinite linear;
+    position: relative;
+    bottom: 0px;
 }
 
 #grid{
     height: 200px;
     width: 1300px;
+    position: relative;
+    bottom: 0px;
 }
 
 #dino{
@@ -24,5 +28,16 @@
     width: 60px;
     background-image: url('t-rex.png');
     position: absolute;
-    top: 145px;
+    bottom: 0px;
+}
+
+#pop-up{
+    position: relative;
+    top: 150px;
+    left: 80px;
+}
+
+#score{
+    position: relative;
+    left: 1100px;
 }
