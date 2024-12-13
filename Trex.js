@@ -5,7 +5,10 @@ const alert=document.getElementById('alert');
 const desert=document.getElementById('desert');
 
 let scoreDiv=document.getElementById('score');
-let score=0; // to update score
+let highScoreDiv=document.getElementById('high-score');
+
+let score=0;  // to update score
+let highScore;
 let gameOver=false;
 let isJumping=false; 
 let dinoPosition=0;
@@ -79,6 +82,10 @@ function createObstacles(){
                         // T-rex after dead
                         dinoAfterDead(desert,dino);
                        
+                        // calculate highscore and set to the local storage
+                        highScore=storingHighScore(score);
+                        highScoreDiv.textContent="High Score : "+highScore;
+
                         // Alert Message
                         alert.innerHTML="Game Over ! ";
                         let popUp=document.createElement('div');
@@ -118,6 +125,21 @@ function dinoAfterDead(bg,trex){
     trex.style.backgroundImage="url('t-rex-dead.png')";
     trex.style.width=72+'px';
     trex.style.height=70+'px';
+}
+
+// storing highscore to the local disk and compare to the actual score and return the high score
+function storingHighScore(score){
+
+    let highScore=localStorage.getItem('highScore');
+
+    if(score>highScore){
+         highScore=score;
+         localStorage.setItem('highScore',score);
+    }
+    else{
+        localStorage.setItem('highScore',highScore);
+    }
+    return highScore;
 }
 
 document.addEventListener('keydown',control);
